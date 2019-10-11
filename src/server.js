@@ -1,26 +1,40 @@
-const express = require('express');
-const cors = require('cors');
+require('dotenv').config()
+const express = require('express')
+const morgan = require('morgan')
+const cors = require('cors')
+const helmet = require('helmet')
+const { NODE_ENV, PORT } = require('./config')
+const app = express()
 
-const app = express();
-app.use(cors());
+const morganOption = (NODE_ENV === 'production')
+    ? 'tiny'
+    : 'common';
 
-// Catch-all 404
+app.use(morgan(morganOption))
+app.use(helmet())
+app.use(cors())
+
+app.get('/', (req, res) => {
+  res.send('Hello, world!')
+})
+
 app.use(function (req, res, next) {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// Catch-all Error handler
-// Add NODE_ENV check to prevent stacktrace leak
-app.use(function (err, req, res, next) {
-  res.status(err.status || 500);
-  res.json({
-    message: err.message,
-    error: app.get('env') === 'development' ? err : {}
-  });
-});
+app.use(function errorHandler(error, req, res, next) {
+  let response
+  if (NODE_ENV === 'production') {
+      response = { error: { message: 'server error' } }
+  } else {
+      console.error(error)
+      response = { message: error.message, error }
+  }
+  res.status(500).json(response)
+})
 
-app.listen(8080,()=>{
-  console.log('Serving on 8080');
+app.listen(PORT,()=>{
+  console.log(`Serving on ${PORT}`);
 });
