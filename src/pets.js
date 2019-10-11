@@ -1,0 +1,210 @@
+const cuid = require('cuid')
+
+const pets = [
+    {
+        id: cuid(),
+        type: 'cat',
+        name: 'Adicen',
+        photo: 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45669932/1/?bust=1566222184',
+        sex: 'f',
+        age: 0.5,
+        breed: '',
+        story: 'Adicen was found in a nearby community and thankfully was brought to the shelter as she was very pregnant. On 6/25/19 she delivered 5 adorable bundles of fur (4 boys & 1 dainty girl) Benny, Bubba, Brutus, Bruno & Betsy. Brutus & Bruno have been adopted.',
+        physDesc: 'Adicen is a beautiful cat with her grey, orange & white coat. She has a unique face with her patch of orange.',
+        status: 'available'
+    },
+    {
+        id: cuid(),
+        type: 'cat',
+        name: 'Agate',
+        photo: 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45757526/1/?bust=1566913215',
+        sex: 'm',
+        age: 0.1,
+        breed: 'American Wirehair',
+        story: "Agate was found in a nearby community with his Mom (Tiffany) and 5 siblings. They were placed in a foster home where Agate & his sibs received the loving care of their Mom & foster Mom. The kittens are now 8 weeks old and they and their Mom think it's time they found forever homes.",
+        physDesc: 'Agate is a darling orange & white domestic long hair. ',
+        status: 'sick'
+    },
+    {
+        id: cuid(),
+        type: 'cat',
+        name: 'Amber',
+        photo: 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45757351/1/?bust=1566911577',
+        sex: 'f',
+        age: 0.1,
+        breed: 'Calico',
+        story: "Amber was found in a nearby community with her Mom (Tiffany) and 5 siblings. They were placed in a foster home where Amber & her sibs received the loving care of their Mom & foster Mom. The kittens are now 8 weeks old and they and their Mom think it's time they found forever homes.",
+        physDesc: "Amber is a tiny kitten with sploches of black, white, orange, and grey. She has dark stormy blue eyes.",
+        status: "sick"
+    },
+    {
+        id: cuid(),
+        type: "cat",
+        name: "Arden",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45504609/1/?bust=1565009512",
+        sex: "m",
+        age: .25,
+        breed: "Tabby (Orange / Red), White",
+        story: "Arden is very vocal, letting you know when he's not getting enough of your attention. He is very playful by himself and with the other cats in his foster home. Arden would be perfect for a family home.",
+        physDesc: "Arden is an adorable male yellow tabby with lots of white on his coat.",
+        status: "available"
+    },
+    {
+        id: cuid(),
+        type: "cat",
+        name: "Ariana",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45540579/4/?bust=1565271832",
+        sex: "f",
+        age: 0.5,
+        breed: "Tortoiseshell",
+        story: "Ariana is a young Tortie who was found in a box outside the front door of YAAP with 3 kittens & 1 other young female cat, one we believe to be the kitten's Mom. Ariana is a beautiful lady who will be spayed soon and will then be available for adoption. Ariana is a regal Tortie!",
+        physDesc: "Ariana has mostly black fur with some hints of greyish orange and white. Her eyes are green.",
+        status: "sick"
+    },
+    {
+        id: cuid(),
+        type: "cat",
+        name: "Asia",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/44264652/4/?bust=1553004133",
+        sex: "f",
+        age: 4,
+        breed: "Calico",
+        story: "Asia arrived 3/12/19. She was found & rescued by a kind gentleman who knew she needed help. Our photographer has called Asia our newest Pin Up Girl, one look at her photos and you will understand. This lady is a beautiful Calico with a unique & stunning face. She has been tested, vaccinated and spayed and is ready for a home to call her own.",
+        physDesc: "Asia has a white stomach with alternating sections of orange and black on the rest of her. She has light green eyes.",
+        status: "pending"
+    },
+    {
+        id: cuid(),
+        type: "cat",
+        name: "Toach",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/40940171/4/?bust=1540848430",
+        sex: "f",
+        age: 10,
+        breed: "Tabby (Gray / Blue / Silver)",
+        story: "Toach arrived 1/29/18. Sadly her family moved and was not able to take her with them. Toach is a real sweetheart and so gentle. Toach is a senior cat but you would never know it, she walks around the shelter so happy & will always stop to be petted. Toach would prefer to be the only cat, she wants to show her affection only to you.",
+        physDesc: "She is a big girl with the softest grey tabby coat with orange highlights.",
+        status: "available"
+    },
+    {
+        id: cuid(),
+        type: "cat",
+        name: "Mia",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/41377413/3/?bust=1523439379",
+        sex: "f",
+        age: 7,
+        breed: "Tabby (Gray / Blue / Silver)",
+        story: "Mia arrived 3/15/18. Mia was so scared when she arrived but has come such a long way. It's so cute when people come to visit, she postures wanting attention but is so quiet she gets overlooked.",
+        physDesc: "Mia is a tabby with a soft grey coat.",
+        status: "adopted"
+    },
+    {
+        id: cuid(),
+        type: "cat",
+        name: "Sadie",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/41576098/1/?bust=1525713465",
+        sex: "f",
+        age: 4,
+        breed: "Berman",
+        story: "Sadie arrived 3/20/18. Sadie is somewhat of a diva but she does like to be petted and would love a home of her very own.",
+        physDesc: "She is a beautiful long hair white lady with spots of cream. ",
+        status: "pending"
+    },
+    {
+        id: cuid(),
+        type: "cat",
+        name: "Sariatu",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/40692925/1/?bust=1548867565",
+        sex: "f",
+        age: 3,
+        breed: "Tabby (Orange / Red)",
+        story: "Suriatu arrived 11/25/17 when she and her siblings were found under a deck. Suriatu was adopted but was returned when one of the children in her new family became allergic. Suriatu is very friendly but doesn't like to be fussed over. She was a little meek but is finally standing up for herself when necessary. Suriatu loves to play and would make a great family love bug!",
+        physDesc: "Suriatu is a darling orange tabby with light green eyes.",
+        status: "adopted"
+    },
+    {
+        id: cuid(),
+        type: "cat",
+        name: "Tommy",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45504741/1/?bust=1565011468",
+        sex: "m",
+        age: 2.5,
+        breed: "British Shorthair",
+        story: "Tommy likes to do his own thing. Likes to be petted on his 'own time'. He gets along with other cats but needs to go to a home with no dogs.",
+        physDesc: "Tommy is a handsome grey & white fella with green-yellow eyes.",
+        status: "adopted"
+    },
+    {
+        id: cuid(),
+        type: "dog",
+        name: "Jethro",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45567044/1/?bust=1565439417",
+        sex: "m",
+        age: 0.5,
+        breed: "Great Dane & Black Labrador Retriever Mix",
+        story: "Jethro is a 6-month-old neutered male Great Dane/Black Labrador Retriever cross. Unfortunately, there were problems in his previous home and he had to be removed for his safety. He is a happy and very healthy (over 65 pounds already) boy. He keeps his kennel clean at the shelter so he should be pretty easy to house train. He is a sweet boy but will be in need of some training. He knows how to 'sit' and he is learning to walk on a leash better than when he first came. Please come and see me in person to see how handsome I am. I am good with other dogs and love people but I have not been around cats.",
+        physDesc: "Large with black coat and black eyes. White sploch on his chest.",
+        status: "available"
+    },
+    {
+        id: cuid(),
+        type: "dog",
+        name: "Elroy",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45022605/2/?bust=1560973018",
+        sex: "m",
+        age: 1.2,
+        breed: "German Shepherd Mix",
+        story: "We want to tell you about our special boy Elroy. We think he is only around a year old or slightly older. We believe he is a German Shepherd cross. He was found as a stray and was not claimed. Elroy was not a nice dog at all at first. He was very scared and needed a lot of reassurance to trust again. That being said, he trusts many people now but still is unsure of new people. He is a young dog and we believe with some training and more socialization he will be a great dog. Elroy prefers people over dogs so a home without dogs would be best. In time with training, he may be able to be around other dogs. He must have a fenced yard in his new home. He keeps his kennel clean most of the time so we hope he will not be hard to housebreak. Elroy can be the most obedient and loving dog once he gets to know a person. We have a volunteer who has spent lots of time with him and he will do most anything for her so we are hoping for someone that has plenty of time to do the same thing with him at their home. We do not recommend a home with small children just because of his need to be cautious sometimes of new people. Please consider adopting this beautiful guy and give him the life he deserves this time around.",
+        physDesc: "Large with black short coat and pointy ears. Has brown, almost orange, eyes.",
+        status: "pending"
+    },
+    {
+        id: cuid(),
+        type: "dog",
+        name: "Knox",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45885416/1/?bust=1567769579",
+        sex: "m",
+        age: 1,
+        breed: "Treeing Walker Coonhound",
+        story: "Hi, my name is Knox. I am a 1-year-old neutered male Tree Walker Coonhound. I was a stray dog and my owner did not claim me. I am busy...busy..busy all the time as I am very young. I am always up for an adventure. I love other dogs but the few times I have been around cats, I have been afraid of them. I have lots to say. Just ask me and I will tell you. I will definitely need some training. They are working on leash training with me now. I am also trying to learn the 'sit' command which is hard for me because I don't love to sit still. I sometimes have accidents in my kennel so they are not sure if I am house trained or not. I most definitely need a fence so my nose doesn't get me in trouble. I would love to live with someone who is a jogger or just an active person all around. I bet we would be the best of friends. ",
+        physDesc: "Tall legs, a few big black sploches on his body, brown face and floppy ears. Black tail with white end.",
+        status: "available"
+    },
+    {
+        id: cuid(),
+        type: "dog",
+        name: "Oscar",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46040270/1/?bust=1568977785",
+        sex: "m",
+        age: 11,
+        breed: "Shih Tzu",
+        story: "Hi, my name is Oscar. My breeder retired and I and 2 other Shih Tzu's (Blackie and Lovie) came to the shelter. We are all shy but warming up nicely. We are very tiny dogs. I weigh 7 pounds. Blackie weighs 7 1/2 pounds and Lovie weighs 6 pounds. We have accidents in our kennel sometimes so we will need to have some house training. We like other small dogs but big dogs scare us. Since we are a little timid yet and older, we would prefer a quiet home without small children.",
+        physDesc: "Small, black, and fluffy. Often found with his tongue sticking out slightly.",
+        status: "sick"
+    },
+    {
+        id: cuid(),
+        type: "dog",
+        name: "Floyd",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45959869/2/?bust=1568370031",
+        sex: "m",
+        age: 3,
+        breed: "Hound Mix",
+        story: "Hi, my name is Floyd. I am a 3-year-old neutered male Hound mix. My owners gave me up to another shelter because they didn't want me anymore. They said I was a Golden Retriever mix but they are unsure of that here at the shelter. I am a great dog that likes other dogs and I Love people. I do have lots of energy still so they are looking for a home without small children as I am trying to learn not to jump on people. I will definitely need a fence to run in as I LOVE to run! Wait till you see how fast I am. I was an indoor dog before and I would love to go to a home where I can be indoors with my new family at least part of the time. ",
+        physDesc: "Large, with a white and yellow coat. Light brown eyes.",
+        status: "adopted"
+    },
+    {
+        id: cuid(),
+        type: "dog",
+        name: "Lovie",
+        photo: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46040300/1/?bust=1568988870",
+        sex: "f",
+        age: 11,
+        breed: "Shih Tzu",
+        story: "Hi, my name is Lovie. I am an 11-year-old spayed female Shih Tzu. My breeder retired and me and 2 other Shih Tzu's (Blackie and Oscar) so we came to the shelter. We are all shy but warming up nicely. We have accidents in our kennel sometimes so we will need to have some house training. We like other small dogs but big dogs scare us. Since we are a little timid yet and older, we would prefer a quiet home without small children.",
+        physDesc: "Small with a mix of shades of grey, white, and black on his coat.",
+        status: "available"
+    }
+]
+
+module.exports = pets
