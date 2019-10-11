@@ -5,7 +5,9 @@ const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV, PORT } = require('./config')
 const app = express()
+const bodyParser = express.json()
 const allPets = require('./allPets.js')
+const pet = require('./pet')
 
 const morganOption = (NODE_ENV === 'production')
     ? 'tiny'
@@ -26,6 +28,10 @@ app.get('/', (req, res) => {
 
 app.get('/allPets', (req, res) => {
   allPets.get(req, res)
+})
+
+app.patch('/pet/:id', bodyParser, (req, res) => {
+  pet.patch(req, res)
 })
 
 app.use(function (req, res, next) {
